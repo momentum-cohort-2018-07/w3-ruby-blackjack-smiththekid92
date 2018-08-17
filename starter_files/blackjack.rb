@@ -89,6 +89,8 @@ end
 class BlackjackGame
   def initialize
     @new_game = fresh_game_opening
+    @hand = []
+    @deck_new = Deck.new
   end
 
   def fresh_game_opening
@@ -98,7 +100,9 @@ class BlackjackGame
   end
 
   def new_hand
-    
+    2.times (@deck_new.draw) 
+    new_hand<<card
+    #put two cards in players hand
   end
 
 end
