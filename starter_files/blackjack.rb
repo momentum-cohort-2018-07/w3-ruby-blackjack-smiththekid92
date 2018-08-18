@@ -1,5 +1,3 @@
-puts "TODO Implement the game of blackjack."
-
 # Hint: for starters, read bin/blackjack.rb
 
 =begin
@@ -22,7 +20,7 @@ class Card
     def initialize(rank, suit)
       @rank = rank
       @suit = suit
-      @rank_value_hash = {
+      @rank_value= {
         :A=>1,
         2=>2, 
         3=>3, 
@@ -40,21 +38,14 @@ class Card
     end
 
     def rank_value
-      @rank_value_hash[@rank]
-    end
-  
-    def greater_than?(other_card)
-      rank_value > other_card.rank_value
-    end
-  
-    def == (other_card)
-      self.rank == other_card.rank &&
-      self.suit == other_card.suit
+      @rank
     end
   
 end
 
 class Deck
+  attr_accessor :deck
+
     def initialize
       @deck = []
       @ranks = [:A, 2, 3, 4, 5, 6, 7, 8, 9, 10, :J, :Q, :K]
@@ -88,21 +79,33 @@ end
 
 class BlackjackGame
   def initialize
-    @new_game = fresh_game_opening
+    @new_game
     @hand = []
     @deck_new = Deck.new
+    @deck_new.shuffle
+    fresh_game_opening
+    hand_value
   end
 
   def fresh_game_opening
-    puts "Hello and welcome to the game of blackjack! Let's begin.
-
-    You have $100 and bet $10."
+    puts "Hello and welcome to the game of blackjack! Let's begin. You have $100 and bet $10."
+  end
+  def new_hand
+    2.times {@hand.push(@deck_new.draw)}
+      #^^puts new card in array
   end
 
-  def new_hand
-    2.times (@deck_new.draw) 
-    new_hand<<card
+  # after ^^ is ran @hand = array of two card objects
     #put two cards in players hand
+    #draw cards from deck
+    #^^^ outputs hand 
+    #^^ gives an arrayof two card objects
+    #
+
+  def hand_value
+    # new_hand<<card    
+    puts "You have a #{rank_value.new} and #{rank_value.new}."
+    #deal two random cards from deck (deck.draw) after deck.shuffle
   end
 
 end
