@@ -40,6 +40,7 @@ class Card
     def rank_value
       @rank
     end
+
   
 end
 
@@ -90,22 +91,22 @@ class BlackjackGame
   def fresh_game_opening
     puts "Hello and welcome to the game of blackjack! Let's begin. You have $100 and bet $10."
   end
+
   def new_hand
-    2.times {@hand.push(@deck_new.draw)}
+    2.times do
+      @deck_new.draw
+    end
       #^^puts new card in array
   end
 
-  # after ^^ is ran @hand = array of two card objects
+  def hand_value
+      puts "You have a #{@deck_new.draw} and #{@deck_new.draw}"
+  end
     #put two cards in players hand
     #draw cards from deck
     #^^^ outputs hand 
     #^^ gives an arrayof two card objects
-    #
 
-  def hand_value
-    # new_hand<<card    
-    puts "You have a #{rank_value.new} and #{rank_value.new}."
-    #deal two random cards from deck (deck.draw) after deck.shuffle
-  end
+    #needs to add the value of the cards
 
 end
