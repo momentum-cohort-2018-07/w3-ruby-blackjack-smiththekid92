@@ -94,19 +94,25 @@ class BlackjackGame
 
   def new_hand
     2.times do
-      @deck_new.draw
+      @hand << @deck_new.draw
     end
       #^^puts new card in array
   end
 
   def hand_value
-      puts "You have a #{@deck_new.draw} and #{@deck_new.draw}"
+    card_one = @deck_new.draw
+    card_two = @deck_new.draw
+    #^^ gives each card a 
+      puts "You have a #{card_one.rank} of #{card_one.suit} and #{card_two.rank} of #{card_two.suit}. Your total is '#{card_one.rank} + #{card_two.rank}'"
   end
     #put two cards in players hand
     #draw cards from deck
     #^^^ outputs hand 
     #^^ gives an arrayof two card objects
 
+  def hand_total
+  card_one.rank + card_two.rank 
+  end
     #needs to add the value of the cards
 
 end
